@@ -57,9 +57,6 @@ fclean: clean
 
 re: fclean all
 
-test:
-
-
 peace:
 	@echo "\n"
 	@echo "     .''.    .',"
