@@ -16,10 +16,11 @@ SRCS :=	1_philo.c \
 		utils.c
 CC := gcc
 ifeq ($(DEBUG),1)
-CFLAGS := -g -pthread -Wall -Wextra -Werror -D DEBUGGING=1 -I$(HEADER_DIR) -fsanitize=thread
+CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=1 -fsanitize=thread
 else
-CFLAGS := -g -pthread -Wall -Wextra -Werror -D DEBUGGING=0 -I$(HEADER_DIR)
+CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=0
 endif
+LINK := -pthread
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 RED := \033[0;31m
@@ -33,14 +34,14 @@ MAKE += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS) $(DEPS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER_DIR) $(OBJS) $(LINK) -o $@
 	@echo "\n$(GREEN)creating: $(NAME)$(NC)"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS) ofilemessage
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER_DIR) -c $< -o $@
 	@echo ".\c"
 
 ofilemessage:
