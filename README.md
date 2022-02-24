@@ -25,9 +25,9 @@ The dish served is a very difficult kind of spaghetti, that has to be eaten with
 
 The philosophers are alternatively eating, sleeping or thinking. When a philosopher has finished eating, they put the forks back on the table and start sleeping. Once awake, they start thinking. The simulation stops when a philosopher dies of starvation. This should be avoided. However philosophers don’t speak with each other and don’t know if another philosopher is about to die.
 
-_Illustration[^1] of the dining philosophers problem_:
-![grafik](https://user-images.githubusercontent.com/80413516/154969574-e0201e98-c453-4f77-9eba-93da381f5783.png)
+_Illustration[^1] of the "dining philosophers problem"_:
 [^1]: From Wikipedia: https://en.wikipedia.org/wiki/Dining_philosophers_problem
+<img src="https://user-images.githubusercontent.com/80413516/154969574-e0201e98-c453-4f77-9eba-93da381f5783.png" width="500">
 
 #### General Rules
 * Global variables are forbidden.
