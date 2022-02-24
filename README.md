@@ -58,7 +58,8 @@ number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_ea
 Here I will explain, how I approached the problem.
 
 ## Prerequisites
-* gcc
+* gcc (```sudo apt-get install gcc```)
+* make (```sudo apt-get install make```)
 * pthread (```$ sudo apt-get install libpthread-stubs0-dev```)
 
 
