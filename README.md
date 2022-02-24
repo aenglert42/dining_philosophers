@@ -78,7 +78,7 @@ For a description of the arguments see: [Arguments](#arguments).
 Terminal output for the following examples:
 
 * __Example 1__ _"2 120 60 60 2"_: The program stops after both philosophers ate at least two times.
-* __Example 2__ _"2 800 600 300"_: A philosopher dies because at 800, when he should eat again to not die, he is stimm sleeping.
+* __Example 2__ _"2 800 600 300"_: A philosopher dies because at 800 ms (when he should eat again to stay alive), he is still sleeping.
 * __Example 3__ _"4 400 200 200"_: Nobody dies and no limit is set.
 
 | __Example 1__ | __Example 2__ | __Example 3__ |
