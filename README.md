@@ -3,12 +3,14 @@ A small project to learn the basics of threading a process and resource sharing.
 
 ## Table of contents
 * [Introduction](#introduction)
+  * [Allowed functions](#allowed-functions)
+  * [Description](#description)
+  * [Arguments](#arguments)
+* [Approach](#approach)
 * [Prerequisites](#prerequisites)
 * [How to launch](#how-to-launch)
-* [Arguments](#arguments)
 * [Example](#example)
 * [Notes](#notes)
-
 
 ## Introduction
 Inspired by the "42 Coding School" exercise "philosophers" (February 2022).
@@ -30,17 +32,6 @@ _Illustration[^1] of the dining philosophers problem_:
 ![grafik](https://user-images.githubusercontent.com/80413516/154969574-e0201e98-c453-4f77-9eba-93da381f5783.png)
 [^1]: From Wikipedia: https://en.wikipedia.org/wiki/Dining_philosophers_problem
 
-#### Arguments
-The program should take the following arguments:
-```
-number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
-```
-* _number_of_philosophers_: The number of philosophers and also the number of forks.
-* _time_to_die_: The time (in milliseconds) since the beginning of the last meal or the beginning of the simulation, after which a philosopher will die of starvation. 
-* _time_to_eat_: The time (in milliseconds) it takes for a philosopher to eat. During that time, they will need to hold two forks.
-* _time_to_sleep_: The time a philosopher will spend sleeping.
-* _number_of_times_each_philosopher_must_eat_: This argument is optional. If all philosophers have eaten at least "number_of_times_each_philosopher_must_eat" times, the simulation stops. If not specified, the simulation stops when a philosopher dies.
-
 #### General Rules
 * Global variables are forbidden.
 * Each philosopher has a number ranging from 1 to "number_of_philosophers".
@@ -55,6 +46,19 @@ number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_ea
 * A message announcing a philosopher died should be displayed no more than 10 ms after the actual death of the philosopher.
 * Each philosopher should be a thread.
 
+#### Arguments
+The program should take the following arguments:
+```
+number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+```
+* _number_of_philosophers_: The number of philosophers and also the number of forks.
+* _time_to_die_: The time (in milliseconds) since the beginning of the last meal or the beginning of the simulation, after which a philosopher will die of starvation. 
+* _time_to_eat_: The time (in milliseconds) it takes for a philosopher to eat. During that time, they will need to hold two forks.
+* _time_to_sleep_: The time a philosopher will spend sleeping.
+* _number_of_times_each_philosopher_must_eat_: This argument is optional. If all philosophers have eaten at least "number_of_times_each_philosopher_must_eat" times, the simulation stops. If not specified, the simulation stops when a philosopher dies.
+
+## Approach
+Here I will explain, how I solved the Task.
 
 ## Prerequisites
 * gcc
@@ -73,10 +77,15 @@ For a description of the arguments see: [Arguments](#arguments).
 
 
 ## Example
-_Screenshot of the terminal output for the input "4 300 200 200":_
+Terminal output for the following examples:
 
-![grafik](https://user-images.githubusercontent.com/80413516/154973731-a8f9fdf2-3982-4760-a1b7-29b7675fccd6.png)
+* __Example 1__ _"2 120 60 60 2"_: The program stops after both philosophers ate at least two times.
+* __Example 2__ _"2 800 600 300"_: A philosopher dies because at 800, when he should eat again to not die, he is stimm sleeping.
+* __Example 3__ _"4 400 200 200"_: Nobody dies and no limit is set.
 
+| __Example 1__ | __Example 2__ | __Example 3__ |
+| :---- | :---- | :---- |
+| ![Philosphers1](https://user-images.githubusercontent.com/80413516/155484192-e887fb65-a58b-445a-b8cb-93df346184a7.gif) | ![Philosphers2](https://user-images.githubusercontent.com/80413516/155485691-d0efe8bb-9e02-4f41-a716-44b1d0a2a6a5.gif) | ![Philosphers3](https://user-images.githubusercontent.com/80413516/155485700-f430e75f-c312-4b41-86bd-c2aa6fb8d71a.gif) |
 
 ## Notes
 Depending on the performance of the Computer philosphers may die (faster) on slower computers, but live on faster ones. Especially in extreme cases for example high number of philosophers (>200) or short times to eat and/or sleep (<60 ms).
