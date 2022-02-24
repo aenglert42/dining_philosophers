@@ -1,5 +1,5 @@
 # dining_philosophers
-A small project to learn the basics of threading a process and resource sharing. On the basis of the "dining philosophers problem", originally formulated by Edsger Dijkstra.
+A small project to learn the basics of threading a process and resource sharing. On the basis of the "dining philosophers problem", originally formulated by Edsger Dijkstra. Inspired by the "42 Coding School" exercise "philosophers" (February 2022).
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -13,12 +13,9 @@ A small project to learn the basics of threading a process and resource sharing.
 * [Notes](#notes)
 
 ## Introduction
-Inspired by the "42 Coding School" exercise "philosophers" (February 2022).
-
 
 ### Allowed functions
 memset, printf, malloc, free, write, usleep, gettimeofday, pthread_create, pthread_detach, pthread_join, pthread_mutex_init, pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock
-
 
 ### Description
 The aim of the exercise is to write a program which does a simulation of the dining philosophers. The situation is as follows:
@@ -58,7 +55,7 @@ number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_ea
 * _number_of_times_each_philosopher_must_eat_: This argument is optional. If all philosophers have eaten at least "number_of_times_each_philosopher_must_eat" times, the simulation stops. If not specified, the simulation stops when a philosopher dies.
 
 ## Approach
-Here I will explain, how I solved the Task.
+Here I will explain, how I approached the problem.
 
 ## Prerequisites
 * gcc
