@@ -13,7 +13,7 @@ A small project to learn the basics of threading a process and resource sharing.
 * [Resources](#resources)
 * [Notes](#notes)
 
-Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]
 ## Introduction
 
 ### Allowed functions
