@@ -14,7 +14,7 @@ A small project to learn the basics of threading a process and resource sharing.
 * [Notes](#notes)
 
 ## Introduction
-###### Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 
 ### Allowed functions
 memset, printf, malloc, free, write, usleep, gettimeofday, pthread_create, pthread_detach, pthread_join, pthread_mutex_init, pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock
@@ -57,7 +57,7 @@ number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_ea
 * _number_of_times_each_philosopher_must_eat_: This argument is optional. If all philosophers have eaten at least "number_of_times_each_philosopher_must_eat" times, the simulation stops. If not specified, the simulation stops when a philosopher dies.
 
 ## Approach
-###### Next: [Prerequisites](#prerequisites)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 
 I started to learn and experiment with threads watching the videos linked in the [resources](#resources). I learned [how to create threads](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2), [how to pass arguments to threads](https://www.youtube.com/watch?v=HDohXvS6UIk&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=7) and [how to use mutex locks](https://www.youtube.com/watch?v=oq29KUy29iQ&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=4).
 
@@ -65,7 +65,7 @@ Basically every philosopher (thread) is going to executing an infinie while loop
 
 The tricky part of this project comes with the parallelism and the use of shared resources (e.g. the forks). To prevent _[data races](https://www.youtube.com/watch?v=FY9livorrJI&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=3)_ the shared resources have to be protected using _mutex_locks_. This has to be coordinated in a way that no _[deadlocks](https://www.youtube.com/watch?v=LjWug2tvSBU&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=19)_ can occure.
 
-I approached this project in three main steps. First I created the "frame" that sets up the simulation. After this I worked out the routine and ended with the external control instance.
+I approached this project in three main steps. First I created the "[frame](#frame)" that sets up the simulation. After this I worked out the [routine](#routine) and ended with the external [control instance](#control-instance).
 
 ### Frame
 For the frame my goal was to code the program up to the point were it would recieve the user input from the command line, do the input error checking and launch the right number of threads (given by the user input) that will run the routine. For now the routine should only print what I call the philosopher_id (the number of the philosopher from 1 to n). Once I managed that, I went on with the routine.
@@ -74,17 +74,17 @@ For the frame my goal was to code the program up to the point were it would reci
 I changed from printing the philosopher_id to printing the required logs, as stated above. To have an easyer start, I first developed the routine without using any mutex_locks, ignoring the fact that a fork can not be used by two philosophers at the same time. When I got this going, I protected the forks of simultaneous use by locking and unlocking the corresponding mutex_locks.
 
 ### Control Instance
-I developed a control function that constantly loops through all the philosophers and checks if a one of them has to die or they ate all their meals. If I detect one of the mentioned cases, I set a flag (which is checked by the philosophers constantly) to indicate that the simulation has to end. I lock the log printing so that no further logs get printed after the notification of the death. **The flag and _all_ other shared variables have to be protected with mutex_locks**.
+I developed a control function that constantly loops through all the philosophers and checks if a one of them has to die or they ate all their meals. If I detect one of the mentioned cases, I set a flag (which is checked by the philosophers constantly) to indicate that the simulation has to end. I lock the log printing so that no further logs get printed after the notification of the death. ***The flag and all other shared variables have to be protected with mutex_locks***.
 
 ## Prerequisites
-###### Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
 * pthread (```$ sudo apt-get install libpthread-stubs0-dev```)
 
 
 ## How to launch
-###### Next: [Example](#example)&emsp;Previous: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [Example](#example)&emsp;Previous: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Compile the program via the Makefile by using ```$ make``` in the root directory of the repository.
 
 Run it like this:
@@ -96,7 +96,7 @@ For a description of the arguments see: [Arguments](#arguments).
 
 
 ## Example
-###### Next: [Resources](#resources)&emsp;Previous: [How to launch](#how-to-launch)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [Resources](#resources)&emsp;Previous: [How to launch](#how-to-launch)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Terminal output for the following examples:
 
 * __Example 1__ _"2 120 60 60 2"_: The program stops after both philosophers ate at least two times.
@@ -108,11 +108,11 @@ Terminal output for the following examples:
 | ![Philosphers1](https://user-images.githubusercontent.com/80413516/155484192-e887fb65-a58b-445a-b8cb-93df346184a7.gif) | ![Philosphers2](https://user-images.githubusercontent.com/80413516/155485691-d0efe8bb-9e02-4f41-a716-44b1d0a2a6a5.gif) | ![Philosphers3](https://user-images.githubusercontent.com/80413516/155485700-f430e75f-c312-4b41-86bd-c2aa6fb8d71a.gif) |
 
 ## Resources
-###### Next: [Notes](#notes)&emsp;Previous: [Example](#example)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Next: [Notes](#notes)&emsp;Previous: [Example](#example)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 [Code Vault: Playlist - Unix Threads in C](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2) Video 1 (Short introduction to threads) - Video 7 (How to pass arguments to threads in C)
 
 [Jacob Sorber: Playlist - Programming with Threads](https://www.youtube.com/watch?v=uA8X5zNOGw8&list=PL9IEJIKnBJjFZxuqyJ9JqVYmuFZHr7CFM) Video 1 (How to create and join threads in C) - Video 3 (Safety and Speed Issues with Threads)
 
 ## Notes
-###### Previous: [Resources](#resources)&emsp;&emsp;[[Contents](#table-of-contents)]
+###### <p align="right">Previous: [Resources](#resources)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Depending on the performance of the Computer philosphers may die (faster) on slower computers, but live on faster ones. Especially in extreme cases for example high number of philosophers (>200) or short times to eat and/or sleep (<60 ms).
