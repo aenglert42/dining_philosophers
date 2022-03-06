@@ -61,6 +61,13 @@ number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_ea
 
 I started to learn and experiment with threads watching the videos linked in the [resources](#resources). I learned [how to create threads](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2), [how to pass arguments to threads](https://www.youtube.com/watch?v=HDohXvS6UIk&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=7) and [how to use mutex locks](https://www.youtube.com/watch?v=oq29KUy29iQ&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=4).
 
+The following quote is a very good and funny metaphoric exlanation on threads, resourece sharing and mutex protection:
+> When I am having a big heated discussion at work, I use a rubber chicken which I keep in my desk for just such occasions. The person holding the chicken is the only person who is allowed to talk. If you don't hold the chicken you cannot speak. You can only indicate that you want the chicken and wait until you get it before you speak. Once you have finished speaking, you can hand the chicken back to the moderator who will hand it to the next person to speak. This ensures that people do not speak over each other, and also have their own space to talk.</br></br>
+Replace Chicken with Mutex and person with thread and you basically have the concept of a mutex.</br></br>
+Of course, there is no such thing as a rubber mutex. Only rubber chicken. My cats once had a rubber mouse, but they ate it.</br></br>
+Of course, before you use the rubber chicken, you need to ask yourself whether you actually need 5 people in one room and would it not just be easier with one person in the room on their own doing all the work. Actually, this is just extending the analogy, but you get the idea.[^2]
+[^2]: From Stack Overflow: https://stackoverflow.com/a/34558
+
 Basically every philosopher (thread) is going to executing an infinie while loop with the philosopher's routine (eat-sleep-think-repeat, as described above), until one of them dies of starvation or all of them have eaten the number of required meals. As they should not communicate with each other, a external control instance is needed.
 
 The tricky part of this project comes with the parallelism and the use of shared resources (e.g. the forks). To prevent _[data races](https://www.youtube.com/watch?v=FY9livorrJI&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=3)_ the shared resources have to be protected using _mutex_locks_. This has to be coordinated in a way that no _[deadlocks](https://www.youtube.com/watch?v=LjWug2tvSBU&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=19)_ can occure.
