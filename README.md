@@ -70,7 +70,7 @@ Of course, before you use the rubber chicken, you need to ask yourself whether y
 
 Basically every philosopher (thread) is going to executing an infinie while loop with the philosopher's routine (eat-sleep-think-repeat, as described above), until one of them dies of starvation or all of them have eaten the number of required meals. As they should not communicate with each other, a external control instance is needed.
 
-The tricky part of this project comes with the parallelism and the use of shared resources (e.g. the forks). To prevent _[data races](https://www.youtube.com/watch?v=FY9livorrJI&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=3)_ the shared resources have to be protected using _mutex_locks_. This has to be coordinated in a way that no _[deadlocks](https://www.youtube.com/watch?v=LjWug2tvSBU&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=19)_ can occure.
+The tricky part of this project comes with the parallelism and the use of shared resources (e.g. the forks). To prevent _[data races](https://www.youtube.com/watch?v=FY9livorrJI&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=3)_ the shared resources have to be protected using _mutex_locks_. This has to be coordinated in a way that no _[deadlocks](https://www.youtube.com/watch?v=LjWug2tvSBU&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=19)_ can occure. The ```-fsanitize=thread``` flag is very useful to identify and find potential problems.
 
 I approached this project in three main steps. First I created the "[frame](#frame)" that sets up the simulation. After this I worked out the [routine](#routine) and ended with the external [control instance](#control-instance).
 
