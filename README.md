@@ -87,17 +87,17 @@ I developed a control function that constantly loops through all the philosopher
 ###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
-* pthread (```$ sudo apt-get install libpthread-stubs0-dev```)
+* pthread (```sudo apt-get install libpthread-stubs0-dev```)
 
 
 ## How to launch
 ###### <p align="right">Next: [Example](#example)&emsp;Previous: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
-Compile the program via the Makefile by using ```$ make``` in the root directory of the repository.
+Compile the program via the Makefile by using ```make``` in the root directory of the repository.
 
 Run it like this:
 
 ```
-$ ./philo 4 800 200 200
+./philo 4 800 200 200
 ```
 For a description of the arguments see: [Arguments](#arguments).
 
